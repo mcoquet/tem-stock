@@ -9,7 +9,7 @@ export function logProductNoStock() {
 }
 
 export function logProductNotFound() {
-  console.log(chalk.bold.black.bgRed(' Not Found '));
+  console.log(chalk.bold.white.bgRed(' Not Found '));
 }
 
 export function logProductInStock() {

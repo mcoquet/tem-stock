@@ -1,5 +1,7 @@
-import { Command, option } from 'commander';
+import { Command } from 'commander';
 import { chromium } from 'playwright-chromium';
+import { globalDataCheck } from './globaldata';
+import { novoAtalhoCheck } from './novo-atalho';
 import { check } from './pcdiga'
 import { readFile } from './reader';
 
@@ -30,6 +32,9 @@ import { readFile } from './reader';
 
   while (true) {
     await check(products, page, options);
+    await globalDataCheck(products, page, options);
+    await novoAtalhoCheck(products, page, options);
+
     console.log('Taking a break for ' + options.break + 'seconds');
     await page.waitForTimeout(options.break * 1000);
   }

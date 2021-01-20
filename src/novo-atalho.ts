@@ -2,23 +2,23 @@ import { OptionValues } from 'commander';
 import { Page } from 'playwright-chromium';
 import { logProduct, logProductInStock, logProductNoStock, logProductNotFound } from './logger';
 
-export async function check(products: string[], page: Page, options: OptionValues): Promise<void> {
+export async function novoAtalhoCheck(products: string[], page: Page, options: OptionValues): Promise<void> {
 
   for (const product of products) {
 
-    if (!product.includes('https://www.pcdiga.com/')) {
+    if (!product.includes('https://www.novoatalho.pt/')) {
       continue;
     }
-    const name = product.replace('https://www.pcdiga.com/', 'PCDIGA > ').replace(/-/g, ' ');
+    const name = 'Novo Atalho > ' + product.split('/')[6].replace(/-/g, ' ');
     logProduct(name);
 
     await page.goto(product);
-    const element = await page.$('#skrey_estimate_date_product_page_wrapper');
+    const element = await page.$('.stock>b>a');
     const text = await element?.innerText();
 
     if (!text) {
       logProductNotFound();
-    } else if (text.trim() === 'Sem stock') {
+    } else if (text.trim() === 'INDISPONÍVEL') {
       logProductNoStock();
     } else {
       logProductInStock();
