@@ -1,0 +1,15 @@
+{
+  "name": "tem-stock",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "tsc && node dist/app.js local",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "playwright-chromium": "^1.7.1",
+    "typescript": "^4.1.3"
+  },
+  "devDependencies": {
+    "tslint": "^6.1.3"
+  }
+}
