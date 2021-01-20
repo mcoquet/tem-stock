@@ -1,13 +1,9 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "CommonJS",
     "outDir": "dist",
-    "sourceMap": true,
+    "lib": ["ES2020", "DOM"],
     "strict": true,
-    "target": "esnext",
-    "esModuleInterop": true,
-  },
-  "include": [
-    "src"
-  ]
+    "target": "ES2020"
+  }
 }
