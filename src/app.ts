@@ -1,5 +1,5 @@
 import { Command } from 'commander';
-import { chromium } from 'playwright-chromium';
+const playwright = require('playwright-aws-lambda');
 import { globalDataCheck } from './globaldata';
 import { novoAtalhoCheck } from './novo-atalho';
 import { check } from './pcdiga'
@@ -23,7 +23,7 @@ import { readFile } from './reader';
   const options = program.opts();
 
   console.log('Initializing Browser');
-  const browser = await chromium.launch(options.debug ? { headless: false, slowMo: 100 } : {});
+  const browser = await playwright.launchChromium(options.debug ? { headless: false, slowMo: 100 } : {});
   const context = await browser.newContext();
   const page = await context.newPage();
 

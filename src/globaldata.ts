@@ -1,5 +1,5 @@
 import { OptionValues } from 'commander';
-import { Page } from 'playwright-chromium';
+import { Page } from 'playwright-core';
 import { logProduct, logProductInStock, logProductNoStock, logProductNotFound } from './logger';
 
 export async function globalDataCheck(products: string[], page: Page, options: OptionValues): Promise<void> {
