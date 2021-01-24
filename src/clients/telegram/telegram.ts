@@ -28,7 +28,7 @@ export async function processUpdate(update: Update, db: PersistentData): Promise
 
   if (update.message.text.startsWith('/products')) {
     console.log('Replaying to /products');
-    reply(update.message, JSON.stringify(db.chats[update.message.chat.id].map(p => p.url)));
+    reply(update.message, JSON.stringify(db.chats[update.message.chat.id]?.map(p => p.url)));
 
   } else if (update.message.text.startsWith('/setproducts')) {
     console.log('Replaying to /setproducts');

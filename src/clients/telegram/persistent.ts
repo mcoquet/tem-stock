@@ -14,7 +14,14 @@ let persistent: PersistentData;
 
 export async function loadPersistent(): Promise<PersistentData> {
   if (!persistent) {
-    persistent = JSON.parse((await fs.readFile('./persistent.json')).toString());
+    try {
+      persistent = JSON.parse((await fs.readFile('./persistent.json')).toString());
+    } catch {
+      persistent = {
+        lastUpdateId: 0,
+        chats: {}
+      };
+    }
   }
   return persistent;
 }
