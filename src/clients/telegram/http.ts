@@ -1,4 +1,5 @@
-import { request, RequestOptions, get as httpGet } from 'https';
+const got = require('got');
+import { get as httpGet, request, RequestOptions } from 'https';
 
 export async function get<T>(hostname: string, path: string): Promise<T> {
 
@@ -19,6 +20,10 @@ export async function get<T>(hostname: string, path: string): Promise<T> {
     }).on("error", (error) => reject(error.message));
 
   });
+}
+
+export async function getRaw(url: string): Promise<string> {
+  return await got(url).text();
 }
 
 export async function post<T>(hostname: string, path: string, body: any): Promise<T> {
