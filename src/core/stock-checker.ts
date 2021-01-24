@@ -2,6 +2,7 @@ import { chromium, Page } from "playwright-chromium";
 import { getBooleanConfig, getNumberConfig } from "../clients/telegram/configuration";
 import { singleCheckGlobalData } from "./shops/globaldata";
 import { singleCheckNovoAtalho } from "./shops/novo-atalho";
+import { singleCheckPcComponentes } from "./shops/pc-componentes";
 import { singleCheckPcdiga } from "./shops/pcdiga";
 
 
@@ -14,6 +15,9 @@ export async function setStockCheckInterval(getProducts: () => Promise<string[]>
     const browser = await chromium.launch(await getBooleanConfig('debug') ? { headless: false, slowMo: 100 } : {});
     const context = await browser.newContext();
     const page = await context.newPage();
+
+    page.setDefaultTimeout(60000);
+    page.setDefaultNavigationTimeout(60000);
 
     for (const product of await getProducts()) {
       const inStock = await checkProduct(product, page);
@@ -31,5 +35,6 @@ export async function checkProduct(productUrl: string, page: Page): Promise<bool
   result = result || await singleCheckPcdiga(productUrl, page);
   result = result || await singleCheckGlobalData(productUrl, page);
   result = result || await singleCheckNovoAtalho(productUrl, page);
+  result = result || await singleCheckPcComponentes(productUrl, page);
   return result;
 }
