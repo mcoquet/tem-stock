@@ -1,6 +1,6 @@
 import { OptionValues } from 'commander';
 import { Page } from 'playwright-chromium';
-import { logProduct, logProductInStock, logProductNoStock, logProductNotFound } from './logger';
+import { logProduct, logProductInStock, logProductNoStock, logProductNotFound } from '../../logger';
 
 export async function novoAtalhoCheck(products: string[], page: Page, options: OptionValues): Promise<void> {
 
