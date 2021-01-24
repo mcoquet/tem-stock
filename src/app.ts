@@ -1,5 +1,6 @@
 import { Command } from 'commander';
 import { chromium } from 'playwright-chromium';
+import { firefox } from 'playwright-firefox';
 import { globalDataCheck } from './globaldata';
 import { novoAtalhoCheck } from './novo-atalho';
 import { check } from './pcdiga'
@@ -23,7 +24,8 @@ import { readFile } from './reader';
   const options = program.opts();
 
   console.log('Initializing Browser');
-  const browser = await chromium.launch(options.debug ? { headless: false, slowMo: 100 } : {});
+  // const browser = await chromium.launch({ headless: true, slowMo: 100 });
+  const browser = await firefox.launch({ headless: true });
   const context = await browser.newContext();
   const page = await context.newPage();
 

@@ -3,6 +3,6 @@ services:
   tem_stock: 
     image: node
     working_dir: /app
-    command: 'sh -c "npm i; npm start"'
+    command: 'sh -c "npm ci; npm start"'
     volumes: 
       - .:/app
