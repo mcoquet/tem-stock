@@ -22,5 +22,8 @@ export interface Chat {
 export interface SendMessage {
   chat_id: number;
   text: string;
-  reply_to_message_id: number;
+  reply_to_message_id?: number;
+  parse_mode?: "MarkdownV2";
+  disable_web_page_preview?: boolean;
+  disable_notification?: boolean;
 }
