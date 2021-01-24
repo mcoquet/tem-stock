@@ -1,4 +1,4 @@
-import { readFile } from './reader';
+import { readFile } from './clients/cli/reader';
 const hget = require('hget');
 const got = require('got');
 

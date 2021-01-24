@@ -23,8 +23,8 @@ import { readFile } from './reader';
   const options = program.opts();
 
   console.log('Initializing Browser');
-  // const browser = await chromium.launch({ headless: true, slowMo: 100 });
-  const browser = await firefox.launch({ headless: true });
+  const browser = await chromium.launch({ headless: true, slowMo: 100 });
+  
   const context = await browser.newContext();
   const page = await context.newPage();
 
