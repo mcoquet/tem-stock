@@ -1,8 +1,8 @@
 import { Command } from 'commander';
 import { chromium } from 'playwright-chromium';
-import { globalDataCheck } from './globaldata';
-import { novoAtalhoCheck } from './novo-atalho';
-import { check } from './pcdiga'
+import { globalDataCheck } from '../../core/shops/globaldata';
+import { novoAtalhoCheck } from '../../core/shops/novo-atalho';
+import { check } from '../../core/shops/pcdiga'
 import { readFile } from './reader';
 
 (async () => {
