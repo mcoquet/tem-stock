@@ -2,8 +2,9 @@
   "name": "tem-stock",
   "version": "0.0.1",
   "scripts": {
+    "start": "tsc && node dist/clients/cli/app.js -f 'dist/prods.txt'",
+    "telegram": "tsc && node dist/clients/telegram/telegram.js",
     "hget": "tsc && node dist/softget.js",
-    "start": "tsc && node dist/app.js -d -f 'produtos.txt'",
     "build": "tsc"
   },
   "dependencies": {
