@@ -2,7 +2,8 @@
   "name": "tem-stock",
   "version": "0.0.1",
   "scripts": {
-    "start": "tsc && node dist/app.js -d -f 'dist/prods.txt'",
+    "start": "tsc && node dist/app.js -f 'dist/prods.txt'",
+    "temp": "tsc && node dist/telegram.js",
     "build": "tsc"
   },
   "dependencies": {
