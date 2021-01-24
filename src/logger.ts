@@ -13,5 +13,5 @@ export function logProductNotFound() {
 }
 
 export function logProductInStock() {
-  console.log(chalk.bold.black.bgGreen(' .:. In Stock .:. '), '\x07');
+  console.log(chalk.bold.black.bgGreen(' .:. In Stock .:. '));
 }

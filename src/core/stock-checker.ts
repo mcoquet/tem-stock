@@ -16,6 +16,9 @@ export async function setStockCheckInterval(getProducts: () => Promise<string[]>
     const context = await browser.newContext();
     const page = await context.newPage();
 
+    page.setDefaultTimeout(60000);
+    page.setDefaultNavigationTimeout(60000);
+
     for (const product of await getProducts()) {
       const inStock = await checkProduct(product, page);
       await callback(product, inStock);
